@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./auth.js"></script>
+  <title>Glendale Parade Store | Process & Responsibilities Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    #login-screen { display: none; }
+    body.login-mode { margin: 0; overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #1e3a8a, transparent 40%),
+                  radial-gradient(circle at 70% 80%, #4a5f8f, transparent 40%), #020617; }
+    body.login-mode #login-screen { display: flex; height: 100vh; align-items: center; justify-content: center; }
+    .login-card { position: relative; backdrop-filter: blur(25px); background: rgba(255,255,255,.04);
+      border-radius: 20px; padding: 46px 40px; width: 430px; text-align: center; color: #fff;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,.6), inset 0 1px 1px rgba(255,255,255,.05); }
+    .login-mark { margin-bottom: 28px; }
+    .login-mark img { height: 26px; width: auto; filter: invert(1) brightness(2); opacity: .95; }
+    .login-card h1 { font-size: 25px; font-weight: 700; margin: 0 0 8px; letter-spacing: -.5px; color: #fff; }
+    .login-card p { color: #cbd5e1; font-size: 14px; margin-bottom: 26px; }
+    .gsi-wrap { display: flex; justify-content: center; min-height: 44px; margin-bottom: 4px; }
+    .login-error { min-height: 18px; margin-top: 12px; font-size: 12.5px; line-height: 1.55; color: #fca5a5; }
+    .login-note { margin-top: 16px; font-size: 12px; color: #94a3b8; line-height: 1.6; }
+    .footer-text { margin-top: 18px; font-size: 12px; color: #cbd5e1; }
+  </style>
+</head>
+
+<body class="home">
+
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-mark"><img src="glendale-logo.png" alt="Glendale Parade Store"></div>
+    <h1>Process &amp; Responsibilities Hub</h1>
+    <p>Arista Systems &times; Glendale Parade Store</p>
+    <div id="gsi-button" class="gsi-wrap"></div>
+    <div id="login-error" class="login-error" role="alert"></div>
+    <div class="login-note" id="login-note">Access is limited to @aristasystems.in accounts.</div>
+    <div class="footer-text">Arista Systems &times; Glendale Parade Store &middot; 2026</div>
+  </div>
+</div>
+
+<div id="main-content">
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo-light.png" alt="Arista Systems Pvt. Ltd."></a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="departments.html">Departments</a>
+        <a href="manhours-tracker.html">Man-Hours Tracker</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="directory.html">Directory</a>
+        <a class="nav-signout" href="#" onclick="logout();return false;">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-content">
+
+      <div class="cobrand">
+        <img class="cb-arista" src="logo-light.png" alt="Arista Systems Pvt. Ltd.">
+        <span class="cb-x">&times;</span>
+        <img class="cb-uj" src="glendale-logo.png" alt="Glendale Parade Store">
+      </div>
+
+      <h1>Process &amp; Responsibilities Hub</h1>
+
+      <p>
+        Who owns what across 13 functions: the tasks each department holds, the
+        responsibilities every person carries, monthly man-hours by process, and the team
+        behind the Glendale Parade Store account.
+      </p>
+
+      <a href="departments.html" class="cta-btn">Explore Departments &rarr;</a>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-copy">&copy; 2026 Arista Systems Pvt. Ltd.</div>
+  </div>
+
+</div>
+
+<script>
+  function showApp() {
+    document.body.classList.remove("login-mode");
+    document.getElementById("main-content").style.display = "flex";
+  }
+  function showLogin() {
+    document.body.classList.add("login-mode");
+    document.getElementById("main-content").style.display = "none";
+  }
+  function showLoginError(msg) {
+    var el = document.getElementById("login-error");
+    if (el) el.textContent = msg || "";
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    if (isUserLoggedIn()) { showApp(); return; }
+    showLogin();
+    initGoogleSignIn("gsi-button", function () { showApp(); }, showLoginError);
+  });
+</script>
+
+</body>
+</html>

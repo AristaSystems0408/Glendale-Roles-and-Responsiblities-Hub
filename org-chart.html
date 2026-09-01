@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./auth.js"></script>
+  <title>Org Chart | Glendale Parade Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo-light.png" alt="Arista Systems Pvt. Ltd."></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="departments.html">Departments</a>
+        <a href="manhours-tracker.html">Man-Hours Tracker</a>
+        <a href="org-chart.html" class="active">Org Chart</a>
+        <a href="directory.html">Directory</a>
+        <a class="nav-signout" href="#" onclick="logout();return false;">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-brand"><img src="glendale-logo.png" alt="Glendale Parade Store"></div>
+
+  <div class="oc-wrap">
+      <button class="page-back" type="button" onclick="if(window.history.length>1){history.back()}else{location.href='index.html'}" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span>Back</span></button>
+
+    <h1 class="directory-title">Org Chart</h1>
+    <div class="dept-rule"></div>
+    <p class="dir-sub">Reporting lines across the Glendale Parade Store account. Open the image in a new tab
+      for a full size view.</p>
+
+    <div class="oc-card">
+      <a href="org-chart.png" target="_blank" rel="noopener">
+        <img src="org-chart.png" alt="Glendale Parade Store org chart: Vishal Sartabe, Project Manager, over Naseem in Technology and Development and Sujitkumar as Overall Marketing Lead, with Mangesh on SEO, Prasidha on Organic Social Media and Anjali on Content and Blogs">
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-copy">&copy; 2026 Arista Systems Pvt. Ltd.</div>
+  </div>
+
+  <script>
+    if (typeof isUserLoggedIn === "function" && !isUserLoggedIn()) {
+      window.location.replace("index.html");
+    }
+  </script>
+
+</body>
+</html>

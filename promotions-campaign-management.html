@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./auth.js"></script>
+  <title>Promotions & Campaign Management | Glendale Parade Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo-light.png" alt="Arista Systems Pvt. Ltd."></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="departments.html" class="active">Departments</a>
+        <a href="manhours-tracker.html">Man-Hours Tracker</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="directory.html">Directory</a>
+        <a class="nav-signout" href="#" onclick="logout();return false;">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-brand"><img src="glendale-logo.png" alt="Glendale Parade Store"></div>
+
+  <div class="department-page">
+    <div class="department-container">
+
+      <button class="page-back" type="button" onclick="if(window.history.length>1){history.back()}else{location.href='departments.html'}" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span>Back</span></button>
+
+      <h1 class="department-title">Promotions &amp; Campaign Management</h1>
+
+      <div class="rr-toggle">
+        <button class="rr-tab active" data-target="department">Department Tasks<span class="rr-count">7</span></button>
+        <button class="rr-tab" data-target="individual">Individual Responsibilities<span class="rr-count">1</span></button>
+      </div>
+
+      <div id="department" class="rr-panel active">
+        <div class="dept-tasks-card">
+          <h3 class="section-title">All tasks</h3>
+          <ol>
+            <li><span class="n">1</span><span>Own the overall marketing coordination for seasonal and promotional campaigns including offer planning, campaign setup, creative, email, social, SEO, and website updates.</span></li>
+            <li><span class="n">2</span><span>Create a campaign checklist covering offer, promo code, dates, landing pages, products, creative, paid media, email, social, SEO, Merchant Center, and post-campaign rollback.</span></li>
+            <li><span class="n">3</span><span>Verify promotional dates, discount percentages, promo codes, eligible products, exclusions, and landing-page messaging before launch.</span></li>
+            <li><span class="n">4</span><span>Coordinate campaign launch timing across paid media, social, email, website, and creative teams.</span></li>
+            <li><span class="n">5</span><span>Ensure expired offers are removed or reverted from ads, sitelinks, banners, email templates, social content, landing pages, and Merchant Center promotions.</span></li>
+            <li><span class="n">6</span><span>Monitor promotional campaign performance and recommend budget, targeting, creative, or merchandising changes during the campaign.</span></li>
+            <li><span class="n">7</span><span>Ensure seasonal campaigns are planned early enough to allow sufficient time for creative production, approvals, technical implementation, and campaign setup.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="individual" class="rr-panel">
+
+        <div class="person-block">
+          <h2 class="person-name">1. Sujitkumar<span class="pn-role">Overall Marketing Manager</span></h2>
+          <span class="person-scope">Covers: Overall Marketing &middot; Paid Media &middot; Analytics & Tracking &middot; Website / UI-UX / CRO &middot; Team Management & Quality Control &middot; Reporting & Project Management &middot; Promotions & Campaign Management &middot; Email Marketing</span>
+          <h3 class="section-title">Promotions, Seasonal Campaigns &amp; Merchandising<span class="task-count">7</span></h3>
+          <ul>
+            <li>Own the overall marketing coordination for seasonal and promotional campaigns including offer planning, campaign setup, creative, email, social, SEO, and website updates.</li>
+            <li>Create a campaign checklist covering offer, promo code, dates, landing pages, products, creative, paid media, email, social, SEO, Merchant Center, and post-campaign rollback.</li>
+            <li>Verify promotional dates, discount percentages, promo codes, eligible products, exclusions, and landing-page messaging before launch.</li>
+            <li>Coordinate campaign launch timing across paid media, social, email, website, and creative teams.</li>
+            <li>Ensure expired offers are removed or reverted from ads, sitelinks, banners, email templates, social content, landing pages, and Merchant Center promotions.</li>
+            <li>Monitor promotional campaign performance and recommend budget, targeting, creative, or merchandising changes during the campaign.</li>
+            <li>Ensure seasonal campaigns are planned early enough to allow sufficient time for creative production, approvals, technical implementation, and campaign setup.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-copy">&copy; 2026 Arista Systems Pvt. Ltd.</div>
+  </div>
+
+  <button id="backToTop">&uarr;</button>
+
+  <script>
+    if (typeof isUserLoggedIn === "function" && !isUserLoggedIn()) {
+      window.location.replace("index.html");
+    }
+  </script>
+
+  <script src="./responsibilities.js"></script>
+  <script>
+    document.querySelectorAll(".rr-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        document.querySelectorAll(".rr-tab").forEach(function (t) { t.classList.remove("active"); });
+        document.querySelectorAll(".rr-panel").forEach(function (p) { p.classList.remove("active"); });
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.target).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+    var btn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
+    };
+    btn.onclick = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
+  </script>
+
+</body>
+</html>

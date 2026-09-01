@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./auth.js"></script>
+  <title>Analytics & Tracking | Glendale Parade Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo-light.png" alt="Arista Systems Pvt. Ltd."></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="departments.html" class="active">Departments</a>
+        <a href="manhours-tracker.html">Man-Hours Tracker</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="directory.html">Directory</a>
+        <a class="nav-signout" href="#" onclick="logout();return false;">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-brand"><img src="glendale-logo.png" alt="Glendale Parade Store"></div>
+
+  <div class="department-page">
+    <div class="department-container">
+
+      <button class="page-back" type="button" onclick="if(window.history.length>1){history.back()}else{location.href='departments.html'}" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span>Back</span></button>
+
+      <h1 class="department-title">Analytics &amp; Tracking</h1>
+
+      <div class="rr-toggle">
+        <button class="rr-tab active" data-target="department">Department Tasks<span class="rr-count">9</span></button>
+        <button class="rr-tab" data-target="individual">Individual Responsibilities<span class="rr-count">1</span></button>
+      </div>
+
+      <div id="department" class="rr-panel active">
+        <div class="dept-tasks-card">
+          <h3 class="section-title">All tasks</h3>
+          <ol>
+            <li><span class="n">1</span><span>Maintain overall ownership of marketing measurement and ensure campaign performance can be accurately evaluated.</span></li>
+            <li><span class="n">2</span><span>Review GA4 data for traffic, engagement, ecommerce activity, source/medium, landing pages, transactions, and revenue trends.</span></li>
+            <li><span class="n">3</span><span>Coordinate with the team on Google Tag Manager, conversion tracking, pixels, UTM parameters, and other measurement requirements.</span></li>
+            <li><span class="n">4</span><span>Monitor Google Ads conversion actions and investigate discrepancies between Google Ads, GA4, BigCommerce, WhatConverts, and other reporting sources.</span></li>
+            <li><span class="n">5</span><span>Review attribution and referral-source anomalies and investigate unexpected direct, referral, paid, or organic traffic classification.</span></li>
+            <li><span class="n">6</span><span>Ensure important campaign URLs contain relevant tracking parameters when required.</span></li>
+            <li><span class="n">7</span><span>Review call/form tracking data and coordinate with the relevant tracking platform when lead or call attribution appears incorrect.</span></li>
+            <li><span class="n">8</span><span>Validate tracking after major website, checkout, landing-page, campaign, or tagging changes.</span></li>
+            <li><span class="n">9</span><span>Document measurement issues, their impact, the owner responsible for resolution, and the status of the fix.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="individual" class="rr-panel">
+
+        <div class="person-block">
+          <h2 class="person-name">1. Sujitkumar<span class="pn-role">Overall Marketing Manager</span></h2>
+          <span class="person-scope">Covers: Overall Marketing &middot; Paid Media &middot; Analytics & Tracking &middot; Website / UI-UX / CRO &middot; Team Management & Quality Control &middot; Reporting & Project Management &middot; Promotions & Campaign Management &middot; Email Marketing</span>
+          <h3 class="section-title">Analytics, Tracking &amp; Measurement<span class="task-count">9</span></h3>
+          <ul>
+            <li>Maintain overall ownership of marketing measurement and ensure campaign performance can be accurately evaluated.</li>
+            <li>Review GA4 data for traffic, engagement, ecommerce activity, source/medium, landing pages, transactions, and revenue trends.</li>
+            <li>Coordinate with the team on Google Tag Manager, conversion tracking, pixels, UTM parameters, and other measurement requirements.</li>
+            <li>Monitor Google Ads conversion actions and investigate discrepancies between Google Ads, GA4, BigCommerce, WhatConverts, and other reporting sources.</li>
+            <li>Review attribution and referral-source anomalies and investigate unexpected direct, referral, paid, or organic traffic classification.</li>
+            <li>Ensure important campaign URLs contain appropriate tracking parameters where required.</li>
+            <li>Review call/form tracking data and coordinate with the relevant tracking platform when lead or call attribution appears incorrect.</li>
+            <li>Validate tracking after major website, checkout, landing-page, campaign, or tagging changes.</li>
+            <li>Document measurement issues, their impact, the owner responsible for resolution, and the status of the fix.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-copy">&copy; 2026 Arista Systems Pvt. Ltd.</div>
+  </div>
+
+  <button id="backToTop">&uarr;</button>
+
+  <script>
+    if (typeof isUserLoggedIn === "function" && !isUserLoggedIn()) {
+      window.location.replace("index.html");
+    }
+  </script>
+
+  <script src="./responsibilities.js"></script>
+  <script>
+    document.querySelectorAll(".rr-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        document.querySelectorAll(".rr-tab").forEach(function (t) { t.classList.remove("active"); });
+        document.querySelectorAll(".rr-panel").forEach(function (p) { p.classList.remove("active"); });
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.target).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+    var btn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "flex" : "none";
+    };
+    btn.onclick = function () { window.scrollTo({ top: 0, behavior: "smooth" }); };
+  </script>
+
+</body>
+</html>

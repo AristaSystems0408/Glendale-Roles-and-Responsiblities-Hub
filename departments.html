@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./auth.js"></script>
+  <title>Departments | Glendale Parade Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="logo-light.png" alt="Arista Systems Pvt. Ltd."></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="departments.html" class="active">Departments</a>
+        <a href="manhours-tracker.html">Man-Hours Tracker</a>
+        <a href="org-chart.html">Org Chart</a>
+        <a href="directory.html">Directory</a>
+        <a class="nav-signout" href="#" onclick="logout();return false;">Sign out</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-brand"><img src="glendale-logo.png" alt="Glendale Parade Store"></div>
+
+  <div class="departments-page">
+
+    <h1>Departments</h1>
+    <div class="dept-rule"></div>
+    <p class="dept-subtitle">Every function supporting the Glendale Parade Store account at two levels: the
+      <span class="hl">tasks each department owns</span> and the
+      <span class="hl">individual responsibilities</span> behind them.
+    </p>
+
+    <div class="grid">
+      <a href="overall-marketing.html" class="dept-card">Overall Marketing</a>
+      <a href="paid-media.html" class="dept-card">Paid Media</a>
+      <a href="analytics-tracking.html" class="dept-card">Analytics &amp; Tracking</a>
+      <a href="website-uiux-cro.html" class="dept-card">Website / UI-UX / CRO</a>
+      <a href="team-management-quality.html" class="dept-card">Team Management &amp; Quality Control</a>
+      <a href="reporting-project-management.html" class="dept-card">Reporting &amp; Project Management</a>
+      <a href="promotions-campaign-management.html" class="dept-card">Promotions &amp; Campaign Management</a>
+      <a href="seo.html" class="dept-card">SEO</a>
+      <a href="organic-social-media.html" class="dept-card">Organic Social Media</a>
+      <a href="email-marketing.html" class="dept-card">Email Marketing</a>
+      <a href="creative-graphic-design.html" class="dept-card">Creative / Graphic Design</a>
+      <a href="content-blogs.html" class="dept-card">Content / Blogs</a>
+      <a href="technology-development.html" class="dept-card">Technology &amp; Development</a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-copy">&copy; 2026 Arista Systems Pvt. Ltd.</div>
+  </div>
+
+  <script>
+    if (typeof isUserLoggedIn === "function" && !isUserLoggedIn()) {
+      window.location.replace("index.html");
+    }
+  </script>
+
+</body>
+</html>
